@@ -1,12 +1,11 @@
 package org.example;
 
-import javax.swing.*;
 
 public class NSecondExecutor extends Thread {
-    private boolean running = true;
-    private int secondsQuantity;
-    private String message;
-    private long startTime = System.currentTimeMillis();
+    private final boolean running = true;
+    private final int secondsQuantity;
+    private final String message;
+    private final long startTime = System.currentTimeMillis();
     private boolean mode;
 
     public NSecondExecutor(int secondsQuantity, String message) {
@@ -22,7 +21,6 @@ public class NSecondExecutor extends Thread {
     }
 
     public void run() {
-//        JComponent form1 = new MainForm.JComponent;
 
         while (running) {
 
@@ -32,18 +30,10 @@ public class NSecondExecutor extends Thread {
                 throw new RuntimeException(e);
             }
             if (mode) {
-                System.out.println(this.message + (System.currentTimeMillis() - startTime)/1000 + " секунд");
+                System.out.println(this.message + (System.currentTimeMillis() - startTime) / 1000 + " секунд");
             } else {
                 System.out.println(this.message + secondsQuantity + " секунд");
             }
         }
-    }
-
-    public boolean isRunning() {
-        return running;
-    }
-
-    public void setRunning(boolean running) {
-        this.running = running;
     }
 }

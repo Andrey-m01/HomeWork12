@@ -1,7 +1,7 @@
 package org.example;
 
 
-public class Main{
+public class Main {
     public static void main(String[] args) throws InterruptedException {
 
         System.out.println("\n Task 2:\n");
@@ -12,19 +12,13 @@ public class Main{
 
         System.out.println("\n Task 1:\n");
 
-        long startTime = System.currentTimeMillis();
-        boolean running = true;
         Thread everySecondThread = new NSecondExecutor(1, "Від запуску програми минуло ", true);
         everySecondThread.start();
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+
+        Thread.sleep(500);
+
         Thread fiveSecondThread = new NSecondExecutor(5, "Минуло ще ");
         fiveSecondThread.start();
-
-
 
 
     }

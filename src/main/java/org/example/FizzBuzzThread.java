@@ -12,10 +12,10 @@ public class FizzBuzzThread extends Thread {
     }
 
     private boolean thisThreadRunning = true;
-    private AtomicBoolean isProcessed = new AtomicBoolean(true);
-    private Consumer processor;
+    private final AtomicBoolean isProcessed = new AtomicBoolean(true);
+    private final Consumer<Integer> processor;
 
-    public FizzBuzzThread(Consumer processor) {
+    public FizzBuzzThread(Consumer<Integer> processor) {
         this.processor = processor;
     }
 
